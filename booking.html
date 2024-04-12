@@ -16,6 +16,7 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
@@ -398,7 +399,25 @@
         </div>
         <!-- Footer End -->
 
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+          <div class="modal" id="myModal">
+    <div class="modal-content">
+         <span class="close" id='close'>&times;</span>
+        <div class="chat-container" id="chatContainer">
+            <!-- Chat messages will be added here -->
+        </div>
+        <div class="chatFooter">
+            <input type="text" id="userInput" placeholder="Type your message...">
+        <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+        <!-- Footer End -->
+      <div class="backChat" id="openModalBtn">
+        Chat with us now
+            <!-- <a href="#" class=""></a> -->
+            <!-- <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a> -->
+
+        </div>
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
