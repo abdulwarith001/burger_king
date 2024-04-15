@@ -1,14 +1,15 @@
 // Get the modal, input, send button, and chat container
-var modal = document.getElementById("myModal");
-var userInput = document.getElementById("userInput");
-var sendBtn = document.getElementById("sendBtn");
-var chatContainer = document.getElementById("chatContainer");
-var span = document.getElementById("close");
+const modal = document.getElementById("myModal");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatContainer = document.getElementById("chatContainer");
+const span = document.getElementById("close");
+const baseUrl = "https://chessy-bites-backend.onrender.com/api"
 
 // Function to add a message to the chat container
 function addMessage(sender, message, isUser) {
-  var messageDiv = document.createElement("div");
-  var messageClass = isUser ? "user-message" : "bot-message";
+  const messageDiv = document.createElement("div");
+  const messageClass = isUser ? "user-message" : "bot-message";
   messageDiv.classList.add("chat-message");
   messageDiv.classList.add(messageClass);
   messageDiv.innerHTML = "<strong>" + sender + ": </strong>" + message;
@@ -18,20 +19,19 @@ function addMessage(sender, message, isUser) {
 }
 
 // Function to handle user input
-function handleUserInput() {
-  var userMessage = userInput.value.trim();
+async function handleUserInput() {
+  const userMessage = userInput.value.trim();
   if (userMessage !== "") {
     addMessage("You", userMessage, true);
+    const payload = {
+      text: userMessage
+    }
+     const res = await axios.post(`${baseUrl}/chat`, payload);
     // Here you could send the user's message to a server for processing by a bot,
     // and then receive and display the bot's response.
     // For this example, let's simulate a bot response after a short delay.
-    setTimeout(function () {
-      addMessage(
-        "Bot",
-        "Hello! I'm just a simple bot. How can I help you?",
-        false
-      );
-    }, 1000);
+      addMessage("Bot", res.data.data.response, false);
+
     userInput.value = ""; // Clear the input field after sending the message
   }
 }
