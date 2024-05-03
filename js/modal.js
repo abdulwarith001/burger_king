@@ -4,7 +4,7 @@ const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const chatContainer = document.getElementById("chatContainer");
 const span = document.getElementById("close");
-const baseUrl = "https://chessy-bites-backend.onrender.com/api"
+const baseUrl = "https://chatterbot-ordering-fastapi.onrender.com"
 
 // Function to add a message to the chat container
 function addMessage(sender, message, isUser) {
@@ -24,13 +24,13 @@ async function handleUserInput() {
   if (userMessage !== "") {
     addMessage("You", userMessage, true);
     const payload = {
-      text: userMessage
+      user_input: userMessage
     }
      const res = await axios.post(`${baseUrl}/chat`, payload);
     // Here you could send the user's message to a server for processing by a bot,
     // and then receive and display the bot's response.
-    // For this example, let's simulate a bot response after a short delay.
-      addMessage("Bot", res.data.data.response, false);
+    // For this example, let's simulate a bot response after a short delay
+      addMessage("Bot", res.data.response, false);
 
     userInput.value = ""; // Clear the input field after sending the message
   }
